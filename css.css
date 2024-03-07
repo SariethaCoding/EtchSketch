@@ -3,22 +3,22 @@ body {
 }
 
 #grid {
-    display: flex;
-    border: 0px solid red;
     
+    border: 0px solid red;
+    width: 900px;
+    margin:auto;
 }
 
 .row {
-
+    display: flex;
 }
-
 .square {
-    height:10px;
-    width:10px;
+    height:20px;
+    width:20px;
     border: 1px solid darkgray;
     margin:0px;
     padding:0px;
-    flex-basis: 0.613496933%;
+    
 }
 
 .square:hover {
