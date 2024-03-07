@@ -4,20 +4,29 @@ body {
 
 #grid {
     
-    border: 0px solid red;
-    width: 900px;
+    border: 1px solid white;
+    width: 600px;
+    height: 600px;
     margin:auto;
 }
 
 .row {
     display: flex;
+    flex-wrap: nowrap;
+    align-items: stretch;
+    justify-content: space-evenly;
+    width:100%;
+    
+    
 }
 .square {
-    height:20px;
-    width:20px;
+    /*height:20px;
+    width:20px;*/
     border: 1px solid darkgray;
     margin:0px;
     padding:0px;
+    flex:1;
+    
     
 }
 
