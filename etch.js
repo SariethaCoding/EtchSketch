@@ -36,21 +36,23 @@ for(let i = 0; i < squares; i++) {
 
 }
 
+
+
 function getNumberOfSquares() {
-    console.log("get the number of squares");
-
-    let squares = prompt("Please enter number of squares you want per row for the new grid : ");
-
-    // Put in check to make sure it's a valid number......
-
-    if (squares == null || squares == "") {
-        console.log("Didn't enter anything")
-    } 
-    else if (squares > 100) {
-        squares = prompt("Please enter a number smaller than 100")
+    // Get the value of the input field with id="numb"
+    let x = document.getElementById("numb").value;
+    // If x is Not a Number or less than one or greater than 100
+    
+    if (isNaN(x) || x < 1 ) {
+        document.getElementById("textInfo").innerHTML = "Input not valid";
     }
+    else if (x > 100) {
+        document.getElementById("textInfo").innerHTML = "Grid can't exceed 100 squares per row";
+    } 
     else {
-        createGrid(squares);
+        document.getElementById("textInfo").innerHTML = "New grid created (size "+x+")";
+        createGrid(x);
     }
     
-}
+  }
+
