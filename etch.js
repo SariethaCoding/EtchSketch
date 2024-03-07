@@ -50,7 +50,7 @@ function getNumberOfSquares() {
         document.getElementById("textInfo").innerHTML = "Grid can't exceed 100 squares per row";
     } 
     else {
-        document.getElementById("textInfo").innerHTML = "New grid created (size "+x+")";
+        document.getElementById("textInfo").innerHTML = "New grid created (size "+x+" x "+x+")";
         createGrid(x);
     }
     

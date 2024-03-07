@@ -24,17 +24,22 @@ h1 {
 
 #container button {
     width : 120px;
-    height: 35px;
+    height: 25px;
     border-radius: 5px;
     background-color: brown;
     border:1px solid white;
     color: white;
-    margin-bottom:20px;
+    
     font-family: 'Courier New', Courier, monospace;
 }
 
 #container button:hover {
     background-color: darkred;
+}
+
+#textInfo {
+    margin-top: 10px;
+    margin-bottom:10px;
 }
 
 #grid {
