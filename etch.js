@@ -1,20 +1,25 @@
-// Set drawing colour :
-let drawColour = "white";
+// Set drawing colour default to black:
+let drawColour = "#000000" ;
 
 // Set pen to not drawing as default
 let penActive = false;
 
-// Initialize default grid of size 20x20
-createGrid(20);
+// Initialize default grid on pageload
+createGrid();
 
 
 //Eventlistener to toggle pen on/off
 const gridBlock = document.getElementById("grid");
+const penActiveIcon = document.getElementById("drawing");
 gridBlock.addEventListener("click", function (e) {
     if (penActive) {
         penActive = false;
+        penActiveIcon.style.opacity = "10%";
     }
-    else {penActive = true;}
+    else {
+        penActive = true;
+        penActiveIcon.style.opacity = "100%";
+    }
 
     console.log ("Pen has been toggled to : " + penActive);
    
@@ -24,13 +29,16 @@ gridBlock.addEventListener("click", function (e) {
 
 function changeColour(newColour) {
     drawColour = newColour;
+    console.log("Colour is : " + drawColour);
 }
 
 
-function createGrid(squares) {
+function createGrid() {
 // Clean the previous grid!
 document.getElementById("grid").textContent = "";
 
+let squares = document.getElementById("gridSizeSlider").value;
+   
 // Create a grid of squares...
 for(let i = 0; i < squares; i++) {
     const newRowDiv = document.createElement("div");
@@ -56,25 +64,3 @@ for(let i = 0; i < squares; i++) {
 }
 
 }
-
-
-
-function getNumberOfSquares() {
-    // Get the value of the input field with id="numb"
-    let x = document.getElementById("numb").value;
-    // If x is Not a Number or less than one or greater than 100
-    
-    if (isNaN(x) || x < 1 ) {
-        document.getElementById("textInfo").innerHTML = "Input not valid";
-    }
-    else if (x > 100) {
-        document.getElementById("textInfo").innerHTML = "Grid can't exceed 100 squares per row";
-    } 
-    else {
-        document.getElementById("textInfo").innerHTML = "New grid created (size "+x+" x "+x+")";
-        createGrid(x);
-    }
-   
-  
-  }
-
