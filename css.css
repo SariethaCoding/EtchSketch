@@ -1,5 +1,9 @@
 body {
-    background-color:black;
+    
+    background-image: linear-gradient(to bottom right, #305170, #6DFC6B);
+
+    background-repeat: no-repeat;
+    height: 100vh;
     font-family: 'Courier New', Courier, monospace;
 }
 
@@ -15,7 +19,7 @@ h1 {
 
 #container {
     width: 80%;
-    background-color:rgb(2, 49, 16);
+    background-color:rgb(48, 52, 54);
     margin:auto;
     padding: 20px;
     border-radius: 20px;
@@ -30,7 +34,28 @@ h1 {
     flex: 1;
     border : 0px solid yellow;
     margin-right: 20px;
-    
+    border-radius: 20px;
+    padding: 20px;
+    background-color:#116e48;
+}
+
+#drawColour {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-color: transparent;
+  width: 100px;
+  height: 100px;
+  border: none;
+  cursor: pointer;
+}
+#drawColour::-webkit-color-swatch {
+  border-radius: 50%;
+  border: 5px solid #000000;    
+}
+#drawColour::-moz-color-swatch {
+  border-radius: 50%;
+  border: 7px solid #000000;
 }
 
 .slider {
@@ -38,7 +63,7 @@ h1 {
     width: 260px;
     height: 15px;
     border-radius: 5px;  
-    background: #d3d3d3;
+    background: white;
     outline: none;
     opacity: 0.7;
     -webkit-transition: .2s;
@@ -55,7 +80,7 @@ h1 {
     width: 25px;
     height: 25px;
     border-radius: 50%; 
-    background: #04AA6D;
+    background: #6DFC6B;
     cursor: pointer;
   }
   
@@ -78,7 +103,7 @@ h1 {
     width: 100%;
     height: 600px;
     margin:auto;
-    flex:2;
+    flex:3;
 }
 
 .row {
@@ -86,14 +111,13 @@ h1 {
     flex-wrap: nowrap;
     align-items: stretch;
     justify-content: space-evenly;
-    width:100%;
+    
     
     
 }
 .square {
-    /*height:20px;
-    width:20px;*/
-    border: 1px solid darkgreen;
+    
+    border: 1px solid rgb(78, 76, 76);
     margin:0px;
     padding:0px;
     flex:1;
