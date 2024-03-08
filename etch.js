@@ -1,12 +1,16 @@
+// Set drawing colour :
+let drawColour = "white";
+
+function changeColour(newColour) {
+    drawColour = newColour;
+    console.log(newColour);
+}
+
+
 function createGrid(squares) {
 
 console.log("Creating grid.... number of squares is : " + squares);
 
-if (squares == null) {
-    squares = 16;
-}
-
-console.log("squares are now : " + squares);
 // Clean the previous grid!
 document.getElementById("grid").textContent = "";
 
@@ -27,7 +31,7 @@ for(let i = 0; i < squares; i++) {
         // add eventListener to create a colour effect with mouseOver
         newDivBlock.addEventListener("mouseover", function (e) {
             //console.log(e);
-            e.target.style.background = 'white';
+            e.target.style.background = drawColour;
         });
         
         document.getElementById("row"+i).appendChild(newDivBlock);
@@ -53,6 +57,7 @@ function getNumberOfSquares() {
         document.getElementById("textInfo").innerHTML = "New grid created (size "+x+" x "+x+")";
         createGrid(x);
     }
-    
+   
+  
   }
 

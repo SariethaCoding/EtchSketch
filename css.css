@@ -62,7 +62,7 @@ h1 {
 .square {
     /*height:20px;
     width:20px;*/
-    border: 1px solid rgb(15, 121, 59);
+    border: 1px solid darkgreen;
     margin:0px;
     padding:0px;
     flex:1;
@@ -70,6 +70,21 @@ h1 {
     
 }
 
-.square:hover {
-    background-color:blue;
+.colours {
+    display: flex;
+    justify-content: center;
+    margin: 10px 0px 10px 0px;
+}
+
+.colourBlock {
+    height:15px;
+    width:15px;
+    margin-right: 6px;
+}
+
+.colourBlock:hover {
+    border:1px solid white;
+    height:13px;
+    width:13px;
+    
 }
