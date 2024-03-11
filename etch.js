@@ -38,7 +38,14 @@ function createGrid() {
 document.getElementById("grid").textContent = "";
 
 let squares = document.getElementById("gridSizeSlider").value;
-   
+
+// Display the grid size on the page
+document.getElementById("gridsize").textContent = squares + " X " + squares;
+
+//  Determine block size 
+let blockSize = 100/squares;
+blockSize = blockSize.toFixed(2);
+
 // Create a grid of squares...
 for(let i = 0; i < squares; i++) {
     const newRowDiv = document.createElement("div");
@@ -46,12 +53,13 @@ for(let i = 0; i < squares; i++) {
     newRowDiv.id = ("row"+i);
     document.getElementById("grid").appendChild(newRowDiv);
     // set the height depending on number of squares
-    document.getElementById("row"+i).style.height = (100/squares+"%");
+    document.getElementById("row"+i).style.height = (blockSize+"%");
+    
 
     for(let j = 0; j < squares; j++) {
         const newDivBlock = document.createElement("div");
         newDivBlock.classList.add("square");
-
+     
         // add eventListener to create a colour effect with mouseOver
         newDivBlock.addEventListener("mouseover", function (e) {
             if(penActive) {
@@ -63,4 +71,10 @@ for(let i = 0; i < squares; i++) {
     }
 }
 
+}
+
+
+function helpPopUp() {
+    const popup = document.getElementById("helpPop");
+    popup.classList.toggle("show");
 }
