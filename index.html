@@ -16,6 +16,8 @@
             Select Size of Grid : 
             <div class="slidecontainer">
                 <input type="range" min="1" max="100" value="30" class="slider" id="gridSizeSlider" onchange="createGrid()">
+                <br>
+                <div id="gridsize"></div>
             </div>
 
             <br><br>
@@ -23,8 +25,16 @@
             <input type="color" id="drawColour" onchange="changeColour(this.value)">
             
             <div id="textInfo"></div>
-
+            <br>
             <div id="drawing">DRAWING</div>
+
+            <br><br>
+            <div class="helpinfo" onclick="helpPopUp()">
+                Help
+                <span class="popUpText" id="helpPop">
+                    some helpful information is going to come here
+                </span>
+            </div>
         </div>
 
         <div id="grid"></div>
