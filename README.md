@@ -21,3 +21,7 @@ Also added indication on the side panel to show when the pen is toggled for draw
 
 - Make it pretty
 
+- Extra : 'rainbow mode' - random colours for blocks
+
+- Extra : Darken
+"Additionally, implement a progressive darkening effect where each interaction adds 10% more black or color to the square. The objective is to achieve a completely black square only after ten interactions."
