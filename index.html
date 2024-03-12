@@ -27,12 +27,19 @@
             <div id="textInfo"></div>
             <br>
             <div id="drawing">DRAWING</div>
+            <br><br>
+
+            <input type="button" id="rainbowButton" value="Rainbow Mode" onclick="makeItRainbow()">
 
             <br><br>
-            <div class="helpinfo" onclick="helpPopUp()">
-                Help
+            <div onclick="helpPopUp()">
+                <span class="helpinfo">Help</span>
                 <span class="popUpText" id="helpPop">
-                    some helpful information is going to come here
+                    Select the size of the grid by adjusting the slider<br>
+                    Changing the size of the grid will reset the drawing<br>
+                    Select any colour you wish to draw with by clicking on the colour selector<br>
+                    Click anywhere on the grid to start drawing, and click again to stop<br>
+                    The "Drawing" symbol will indicate whether drawing is on / off<br>
                 </span>
             </div>
         </div>
