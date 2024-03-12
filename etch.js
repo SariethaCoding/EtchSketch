@@ -26,10 +26,12 @@ gridBlock.addEventListener("click", function (e) {
     if (penActive) {
         penActive = false;
         penActiveIcon.style.opacity = "10%";
+        penActiveIcon.innerHTML = "DRAWING OFF";
     }
     else {
         penActive = true;
         penActiveIcon.style.opacity = "100%";
+        penActiveIcon.innerHTML = "DRAWING ON";
     }
 
     // console.log ("Pen has been toggled to : " + penActive);
