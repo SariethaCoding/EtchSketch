@@ -167,8 +167,8 @@ h1 {
 .popUpText {
     margin:auto;
     display: block;
-    width:600px;
-    height: 300px;
+    width:700px;
+    height: 400px;
     border-radius: 15px;
     padding: 20px;
     background-color: #305170;
@@ -177,10 +177,11 @@ h1 {
 }
 .popUpHeading {
     font-weight: bold;
-    font-size: 18px;
+    font-size: 22px;
     border-bottom: 1px solid white;
     padding-bottom:5px;
     margin-top:-5px;
+    margin-bottom: 5px;
     text-align:center;
 }
 
