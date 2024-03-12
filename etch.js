@@ -108,7 +108,13 @@ for(let i = 0; i < squares; i++) {
 }
 
 
+function shadingMode() {
+    
+}
+
+
 function helpPopUp() {
     const popup = document.getElementById("helpPop");
     popup.classList.toggle("show");
+    
 }
