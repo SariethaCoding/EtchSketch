@@ -14,14 +14,17 @@ Replaced the old way of creating a grid by inputing the number of squares in an 
 Figured out how to toggle the pen on/off so you can click to start continous drawing and click again to stop. 
 Also added indication on the side panel to show when the pen is toggled for drawing or not
 
+* Update - Rainbow mode (Extra)
+Random colour drawing has been added
 
 
 * TO DO
 - Add a 'help' pop up info block to explain the details
 
+- Add button to clear the board
+
 - Make it pretty
 
-- Extra : 'rainbow mode' - random colours for blocks
 
 - Extra : Darken
 "Additionally, implement a progressive darkening effect where each interaction adds 10% more black or color to the square. The objective is to achieve a completely black square only after ten interactions."
