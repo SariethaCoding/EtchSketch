@@ -8,7 +8,7 @@
     <title>Etch-a-Sketch Project</title>
 </head>
 <body>
-    <h1>Etch-a-Sketch</h1>
+    <h1>Etch-a-Sketch Project</h1>
         
     <div id="container">
         
@@ -26,26 +26,31 @@
             
             <div id="textInfo"></div>
             <br>
-            <div id="drawing">DRAWING</div>
+            <div id="drawing">DRAWING OFF</div>
             <br><br>
 
             <input type="button" value="Clear Board" onclick="createGrid()"><br><br>
             <input type="button" id="rainbowButton" value="Rainbow Mode" onclick="makeItRainbow()"><br><br>
-            <input type="button" value="Shading Mode" onclick="shadingMode()"><br><br>
+            <input type="button" id="shadingButton" value="Shading Mode" onclick="createShading()"><br><br>
 
             <br><br>
             <div onclick="helpPopUp()">
                 <span class="helpinfo">Help</span>
                 <div class="popUp" id="helpPop">
                 <span class="popUpText">
-                    <p class="popUpHeading">Help</p>
-                    Select the size of the grid by adjusting the slider<br>
-                    Changing the size of the grid will reset the board<br>
-                    Select any colour you wish to draw with by clicking on the colour selector<br>
+                    <p class="popUpHeading">Etch-A-Sketch Help</p>
+                    <b>Drawing</b><br>
                     Click anywhere on the grid to start drawing, and click again to stop<br>
-                    The "Drawing" symbol will indicate whether drawing is on / off<br>
+                    The "Drawing" symbol on the side panel will indicate whether drawing is on / off<br><br>
+                    
+                    <b>Grid Size</b><br>
+                    Select the size of the grid by adjusting the slider<br>
+                    Changing the size of the grid will reset the board<br><br>
+
+                    <b>Colours</b><br>
+                    Select any colour you wish to draw with by clicking on the colour selector and selecting a colour<br>
                     "Rainbow Mode" will select random colours for every block while drawing<br>
-                    "Shading Mode" is coming soon...
+                    "Shading Mode" will darken the colours as you move over them (drawing must be active)<br>
                 </span>
                 </div>
             </div>
