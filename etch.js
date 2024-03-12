@@ -4,9 +4,14 @@ let drawColour = "#000000" ;
 // Set pen to not drawing as default
 let penActive = false;
 
+// Random colours when drawing - set to false as default
+let rainbowMode = false;
+
 // Initialize default grid on pageload
 createGrid();
 
+// constant array for random colour generator
+const hexArray = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 'A', 'B', 'C', 'D', 'E', 'F'];
 
 //Eventlistener to toggle pen on/off
 const gridBlock = document.getElementById("grid");
@@ -26,6 +31,32 @@ gridBlock.addEventListener("click", function (e) {
 });
 
 /* ------------------------------------------------------*/
+
+function generateRandomColour() {
+    let rainbowColour = "";
+    for(let i=0; i<6; i++){
+        rainbowColour += hexArray[Math.floor(Math.random()*16)];
+    }
+
+    rainbowColour = "#"+rainbowColour;
+    console.log("Random colour : " + rainbowColour);
+    drawColour = rainbowColour;
+
+    /* can change the colour picker to reflect the current drawing colour
+       might be a bit distracting tho... */
+    document.getElementById("drawColour").value = drawColour;
+
+ 
+}
+
+/* Rainbow mode - generates random colours for each block when drawing */
+function makeItRainbow() {
+    rainbowMode = !rainbowMode;
+
+    document.getElementById("rainbowButton").classList.toggle("buttonOn");
+
+
+}
 
 function changeColour(newColour) {
     drawColour = newColour;
@@ -63,6 +94,9 @@ for(let i = 0; i < squares; i++) {
         // add eventListener to create a colour effect with mouseOver
         newDivBlock.addEventListener("mouseover", function (e) {
             if(penActive) {
+                if(rainbowMode) {
+                    generateRandomColour();
+                }
                 e.target.style.background = drawColour;
             }
         });
