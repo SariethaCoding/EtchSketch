@@ -7,11 +7,17 @@ let penActive = false;
 // Random colours when drawing - set to false as default
 let rainbowMode = false;
 
+// Darkens colours when drawing - set to false as default
+let shadingMode = false;
+
 // Initialize default grid on pageload
 createGrid();
 
-// constant array for random colour generator
+// constant array for random colour generator (hex values)
 const hexArray = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 'A', 'B', 'C', 'D', 'E', 'F'];
+
+
+/* ------------------------------------------------------*/
 
 //Eventlistener to toggle pen on/off
 const gridBlock = document.getElementById("grid");
@@ -26,11 +32,55 @@ gridBlock.addEventListener("click", function (e) {
         penActiveIcon.style.opacity = "100%";
     }
 
-    console.log ("Pen has been toggled to : " + penActive);
+    // console.log ("Pen has been toggled to : " + penActive);
    
 });
 
 /* ------------------------------------------------------*/
+
+function darkenColour(currentBlock, currentColour) {
+    let theFilter = currentBlock.style.filter;
+    //console.log("Darkening colour : " + currentColour + " with current filter : " + theFilter);
+    if(currentColour != ""){
+
+        switch(theFilter) {
+            case "brightness(100%)" :
+                currentBlock.style.filter = "brightness(90%)";
+                break;
+            case "brightness(90%)" :    
+                currentBlock.style.filter = "brightness(80%)";
+                break;
+            case "brightness(80%)" :    
+                currentBlock.style.filter = "brightness(70%)";
+                break;
+            case "brightness(70%)" :    
+                currentBlock.style.filter = "brightness(60%)";
+                break;
+            case "brightness(60%)" :    
+                currentBlock.style.filter = "brightness(50%)";
+                break;
+            case "brightness(50%)" :    
+                currentBlock.style.filter = "brightness(40%)";
+                break;
+            case "brightness(40%)" :    
+                currentBlock.style.filter = "brightness(30%)";
+                break;
+            case "brightness(30%)" :    
+                currentBlock.style.filter = "brightness(20%)";
+                break;
+            case "brightness(20%)" :    
+                currentBlock.style.filter = "brightness(10%)";
+                break;
+            case "brightness(10%)" :    
+                currentBlock.style.filter = "brightness(0%)";
+                break;
+            default :    
+                break;
+        }
+    }
+    
+}
+
 
 function generateRandomColour() {
     let rainbowColour = "";
@@ -39,28 +89,45 @@ function generateRandomColour() {
     }
 
     rainbowColour = "#"+rainbowColour;
-    console.log("Random colour : " + rainbowColour);
     drawColour = rainbowColour;
 
-    /* can change the colour picker to reflect the current drawing colour
-       might be a bit distracting tho... */
+    /* can remove this line that changes the colour picker to reflect the current drawing colour
+       if it is too distracting to see all the colours flash by... */
     document.getElementById("drawColour").value = drawColour;
 
  
 }
 
-/* Rainbow mode - generates random colours for each block when drawing */
+/* Toggle Rainbow mode - generates random colours for each block when drawing */
 function makeItRainbow() {
+
+    // If shading mode is still active - disable it
+    if(shadingMode){
+        createShading();
+    }
+
     rainbowMode = !rainbowMode;
-
     document.getElementById("rainbowButton").classList.toggle("buttonOn");
-
 
 }
 
+
+// Toggle Shading mode - Make the colour of the block darker by 10%
+function createShading() {
+
+    // If Rainbow mode was still active - disable it
+    if(rainbowMode){
+        makeItRainbow();
+    }
+
+    shadingMode = !shadingMode;
+    document.getElementById("shadingButton").classList.toggle("buttonOn");
+ 
+}
+
+
 function changeColour(newColour) {
     drawColour = newColour;
-    console.log("Colour is : " + drawColour);
 }
 
 
@@ -97,7 +164,15 @@ for(let i = 0; i < squares; i++) {
                 if(rainbowMode) {
                     generateRandomColour();
                 }
-                e.target.style.background = drawColour;
+                if(shadingMode) {
+                    darkenColour(e.target,this.style.background);
+                }
+                else {
+                    // (Re)set the shading on square to full brightness
+                    e.target.style.background = drawColour;
+                    e.target.style.filter = "brightness(100%)";
+                    
+                }    
             }
         });
         
@@ -108,13 +183,8 @@ for(let i = 0; i < squares; i++) {
 }
 
 
-function shadingMode() {
-    
-}
-
 
 function helpPopUp() {
     const popup = document.getElementById("helpPop");
     popup.classList.toggle("show");
-    
 }
