@@ -41,46 +41,18 @@ gridBlock.addEventListener("click", function (e) {
 /* ------------------------------------------------------*/
 
 function darkenColour(currentBlock, currentColour) {
-    let theFilter = currentBlock.style.filter;
-    //console.log("Darkening colour : " + currentColour + " with current filter : " + theFilter);
-    if(currentColour != ""){
-
-        switch(theFilter) {
-            case "brightness(100%)" :
-                currentBlock.style.filter = "brightness(90%)";
-                break;
-            case "brightness(90%)" :    
-                currentBlock.style.filter = "brightness(80%)";
-                break;
-            case "brightness(80%)" :    
-                currentBlock.style.filter = "brightness(70%)";
-                break;
-            case "brightness(70%)" :    
-                currentBlock.style.filter = "brightness(60%)";
-                break;
-            case "brightness(60%)" :    
-                currentBlock.style.filter = "brightness(50%)";
-                break;
-            case "brightness(50%)" :    
-                currentBlock.style.filter = "brightness(40%)";
-                break;
-            case "brightness(40%)" :    
-                currentBlock.style.filter = "brightness(30%)";
-                break;
-            case "brightness(30%)" :    
-                currentBlock.style.filter = "brightness(20%)";
-                break;
-            case "brightness(20%)" :    
-                currentBlock.style.filter = "brightness(10%)";
-                break;
-            case "brightness(10%)" :    
-                currentBlock.style.filter = "brightness(0%)";
-                break;
-            default :    
-                break;
-        }
-    }
     
+   // split rgb values up 
+   
+    var vals = currentColour.substring(currentColour.indexOf('(') +1, currentColour.length -1).split(', ');
+    let newR = vals[0] - 26;
+    let newG = vals[1] - 26;
+    let newB = vals[2] - 26;
+
+    let newDarkColour = "rgb("+newR+", "+newG+", "+newB+")";
+
+    console.log("NewColour" + newDarkColour);
+    currentBlock.style.backgroundColor = newDarkColour;
 }
 
 
@@ -170,10 +142,7 @@ for(let i = 0; i < squares; i++) {
                     darkenColour(e.target,this.style.background);
                 }
                 else {
-                    // (Re)set the shading on square to full brightness
                     e.target.style.background = drawColour;
-                    e.target.style.filter = "brightness(100%)";
-                    
                 }    
             }
         });
